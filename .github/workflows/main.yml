@@ -23,7 +23,7 @@ jobs:
         uses: edplato/trufflehog-actions-scan@v0.9k-beta
 
       - name: Depcheck
-        uses: dependency-check/Dependency-Check_Action@main
+        uses: dependency-check/Dependency-Check_Action@master
         id: Depcheck
         with:
           project: 'test'
