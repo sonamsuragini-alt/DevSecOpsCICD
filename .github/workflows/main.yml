@@ -32,8 +32,6 @@ jobs:
           name: my-artifact
           path: ${{ github.workspace }}/reports
 
-      - name: Scan ZAP website
-        steps:
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.3.0
         with:
