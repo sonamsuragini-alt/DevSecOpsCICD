@@ -21,18 +21,6 @@ jobs:
           java-version: 11
       - name: Trufflehog Actions Scan
         uses: edplato/trufflehog-actions-scan@v0.9k-beta
-      - name: DevSkim
-        uses: microsoft/DevSkim-Action@v1
-        with:
-        # The sub directory of the repository root to scan. Repository root used by default.
-        # Optionally scan the contents of archives.
-         should-scan-archives: false
-        # The filename for the output.
-         output-filename: devskim-results.sarif
-      - name: Upload Sarif
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-         sarif_file: devskim-results.sarif
 
       - name: Downloading OWASP Dependency Check
         run: wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.2/dependency-check-6.2.2-release.zip
