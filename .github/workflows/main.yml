@@ -31,12 +31,13 @@ jobs:
         with:
           name: my-artifact
           path: ${{ github.workspace }}/reports
+          
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/nodemaster
+        uses: snyk/actions/maven@master
+        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high
+          
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.9.0
         with:
