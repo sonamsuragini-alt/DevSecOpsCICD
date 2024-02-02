@@ -25,12 +25,7 @@ jobs:
       - name: Downloading OWASP Dependency Check
         run: wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.2/dependency-check-6.2.2-release.zip
       - name: Unzipping and installing
-        run: unzip dependency-check-6.2.2-release.zip && ls -l dependency-check/bin/dependency-check.sh -s .
-      - name: Upload Test results
-        uses: 'actions/upload-artifact@master'
-        with:
-          name: my-artifact
-          path: ${{ github.workspace }}
+        run: unzip dependency-check-6.2.2-release.zip && ls -l dependency-check/bin/dependency-check.sh -s 
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.9.0
         with:
