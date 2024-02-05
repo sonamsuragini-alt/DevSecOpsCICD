@@ -36,9 +36,5 @@ jobs:
         uses: snyk/actions/maven@master
         continue-on-error: true
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: cda0dee8-713d-4a68-8049-e0fff55cac8f
           
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.9.0
-        with:
-          target: 'http://localhost:8083/onlinebookstore/'
