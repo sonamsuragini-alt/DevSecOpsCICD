@@ -39,5 +39,8 @@ jobs:
         with:
           name: artifacts
           path: report.html
-
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.9.0
+        with:
+           target: http://localhost:8083/onlinebookstore/'
           
