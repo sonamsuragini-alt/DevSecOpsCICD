@@ -24,17 +24,20 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Trufflehog Actions Scan
-        uses: edplato/trufflehog-actions-scan@v0.9k-beta
-      - name: Downloading OWASP Dependency Check
-        run: wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.2.2/dependency-check-6.2.2-release.zip
-      - name: Unzipping and installing
-        run: unzip dependency-check-6.2.2-release.zip && ls -l dependency-check/bin/dependency-check.sh -s .
+      - name: Download OWASP Dependency Check
+        run: |
+          VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
+          curl -sL "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" --output dependency-check.zip
+          unzip dependency-check.zip
+      - name: Run Dependency Check
+        run: |
+          ./dependency-check/bin/dependency-check.sh --out report.html --scan .
+          rm -rf dependency-check*
 
-   
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/maven@master
-        continue-on-error: true
-        env:
-          SNYK_TOKEN: cda0dee8-713d-4a68-8049-e0fff55cac8f
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: report.html
+
           
