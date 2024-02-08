@@ -13,7 +13,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven cloud1
+    - name: Build with Maven cloud11
       run:  mvn -B verify sonar:sonar -Dsonar.projectKey=neworg143 -Dsonar.organization=NewOrg -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARCLOUD_TOKEN
       env:
         GIT_HUB_TOKEN: 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
