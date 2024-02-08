@@ -1,1 +1,17 @@
+name: workflow for Maven using Snyk security scan
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN:766343fa-8a03-42c4-b3f8-59e57d582180
 
+      - name: ZAP Scan
+           uses: zaproxy/action-full-scan@v0.9.0
+           with:
+             target: 'https://c616-1-6-72-33.ngrok-free.app'
