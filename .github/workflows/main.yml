@@ -50,8 +50,21 @@ jobs:
         uses: trufflesecurity/TruffleHog-Enterprise-Github-Action@main
         with:
             args: --fail-verified ${{ github.event.repository.default_branch }} HEAD
+
+      - name: TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+        # Repository path
+         path: ./
+       # Start scanning from here (usually main branch).
+         base: master
+      # Scan commits until here (usually dev branch).
+         head: master
+       # Extra args to be passed to the trufflehog cli.
+         extra_args: --debug --only-verified
+     
       # - name: Run Snyk to check for vulnerabilities
       #   uses: snyk/actions/maven@master
       #   continue-on-error: true
-        env:
-          SNYK_TOKEN: 766343fa-8a03-42c4-b3f8-59e57d582180
+        # env:
+        #   SNYK_TOKEN: 766343fa-8a03-42c4-b3f8-59e57d582180
