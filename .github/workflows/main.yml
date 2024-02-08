@@ -44,6 +44,8 @@ jobs:
         with:
            target: 'https://c616-1-6-72-33.ngrok-free.app'
 
+      - name: trufflehog-actions-scan
+        uses: nasa-gibs/trufflehog-actions-scan@master
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven@master
