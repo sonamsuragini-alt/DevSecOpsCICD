@@ -34,7 +34,7 @@ jobs:
 
 
       - name: Build with Maven cloud
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=onlinebookstorecicd 
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=onlinebookstorecicd -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e03346e798e7ac5f704edbed331893496f41484e
         env:
            GIT_HUB_TOKEN: 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
            SONARCLOUD_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
