@@ -24,10 +24,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Secret Scanning
-        uses: trufflesecurity/trufflehog@main
-        with:
-         extra_args: --only-verified
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master
       # - name: Download OWASP Dependency Check
       #   run: |
       #     VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
