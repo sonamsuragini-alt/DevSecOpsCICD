@@ -26,11 +26,11 @@ jobs:
           java-version: 11
       # - name: trufflehog-actions-scan
       #   uses: edplato/trufflehog-actions-scan@master
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-         GITHUB_TOKEN: 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
-         SONAR_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
+      # - name: SonarCloud Scan
+      #   uses: sonarsource/sonarcloud-github-action@master
+      #   env:
+      #    GITHUB_TOKEN: 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
+      #    SONAR_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
 
 
       - name: Build with Maven cloud
