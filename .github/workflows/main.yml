@@ -34,10 +34,9 @@ jobs:
 
 
       - name: Build with Maven cloud
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=onlinebookstorecicd -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e03346e798e7ac5f704edbed331893496f41484e
-        env:
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=onlinebookstorecicd -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=876a5959eedb62319a63aa0d4d8be0154be2f9d9
            GIT_HUB_TOKEN: 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
-           SONARCLOUD_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
+           SONARCLOUD_TOKEN: 876a5959eedb62319a63aa0d4d8be0154be2f9d9
       # - name: Download OWASP Dependency Check
       #   run: |
       #     VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
