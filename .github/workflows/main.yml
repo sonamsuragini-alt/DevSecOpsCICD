@@ -59,8 +59,8 @@ jobs:
        # Start scanning from here (usually main branch).
          base: master
       # Scan commits until here (usually dev branch).
-         head: master
-       # Extra args to be passed to the trufflehog cli.
+       #   head: master
+       # # Extra args to be passed to the trufflehog cli.
          extra_args: --debug --only-verified
      
       # - name: Run Snyk to check for vulnerabilities
