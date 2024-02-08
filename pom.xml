@@ -80,4 +80,8 @@
 			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
+	<properties>
+  <sonar.organization>neworg143</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 </project>
