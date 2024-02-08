@@ -25,7 +25,7 @@ jobs:
         with:
           java-version: 11
       - name: Secret Scanning
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@master
         with:
          extra_args: --only-verified
       # - name: Download OWASP Dependency Check
