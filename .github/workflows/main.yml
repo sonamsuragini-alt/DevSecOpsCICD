@@ -57,7 +57,7 @@ jobs:
        #  # Repository path
        #   path: ./
        # # Start scanning from here (usually main branch).
-         base: master
+         base: "" #entire branch
       # Scan commits until here (usually dev branch).
        #   head: master
        # # Extra args to be passed to the trufflehog cli.
