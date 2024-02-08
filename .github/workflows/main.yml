@@ -46,22 +46,18 @@ jobs:
 
 
      
-      - name: TruffleHog Enterprise scan
-        uses: trufflesecurity/TruffleHog-Enterprise-Github-Action@main
-        with:
-            args: --fail-verified ${{ github.event.repository.default_branch }} HEAD
+      - name: Run trufflehog
+        run: trufflehog --no-update filesystem --directory=${{ github.workspace }} --json > /tmp/trufflehog.json
 
-      - name: TruffleHog
-        uses: trufflesecurity/trufflehog@main
-        with:
-       #  # Repository path
-       #   path: ./
-       # # Start scanning from here (usually main branch).
-         base: "" #entire branch
-      # Scan commits until here (usually dev branch).
-       #   head: master
-       # # Extra args to be passed to the trufflehog cli.
-         extra_args: --debug --only-verified
+    # # Upload the scan output
+    #   - name: Upload the scan output
+    #     uses: actions/upload-artifact@v2
+    #     with:
+    #   - name: scan_results
+    #     path: /tmp/trufflehog.json
+    #     retention-days: 2
+
+     
      
       # - name: Run Snyk to check for vulnerabilities
       #   uses: snyk/actions/maven@master
