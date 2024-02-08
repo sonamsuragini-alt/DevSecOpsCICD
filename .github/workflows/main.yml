@@ -24,20 +24,20 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master
-      # - name: SonarCloud Scan
-      #   uses: sonarsource/sonarcloud-github-action@master
-      #   env:
-      #    GITHUB_TOKEN: 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
-      #    SONAR_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
-
-
-      - name: Build with Maven cloud
-        run:  mvn -B verify sonar:sonar -Dsonar.projectKey=onlinebookstorecicd -Dsonar.organization=onlinebookstore -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e03346e798e7ac5f704edbed331893496f41484e
+      # - name: trufflehog-actions-scan
+      #   uses: edplato/trufflehog-actions-scan@master
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
         env:
-           GIT_HUB_TOKEN: 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
-           SONARCLOUD_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
+         GITHUB_TOKEN: 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
+         SONAR_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
+
+
+      # - name: Build with Maven cloud
+      #   run:  mvn -B verify sonar:sonar -Dsonar.projectKey=onlinebookstorecicd -Dsonar.organization=onlinebookstore -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e03346e798e7ac5f704edbed331893496f41484e
+      #   env:
+      #      GIT_HUB_TOKEN: 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
+      #      SONARCLOUD_TOKEN: e03346e798e7ac5f704edbed331893496f41484e
       # - name: Download OWASP Dependency Check
       #   run: |
       #     VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
